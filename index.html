@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta charset="utf-8" />
+	<title>登录</title>
+
+	<meta name="description" content="User login page" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap-3.3.4.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.4.6.0.css">
+	<link rel="stylesheet" href="assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+	<script src="assets/js/jquery-1.11.3.min.js"></script>
+	<script src="assets/js/bootstrap-3.3.4.js"></script>
+	<script src="assets/js/html5shiv.min.js"></script>
+	<script src="assets/js/respond.min.js"></script>
+</head>
+
+<body class="login-layout">
+<div class="main-container" style="padding-top: 10%">
+	<div class="main-content">
+		<div class="row">
+			<div class="col-sm-10 col-sm-offset-1">
+				<div class="login-container">
+					<div class="center">
+						<h1>
+							<i class="ace-icon fa fa-leaf green"></i>
+							<span class="red">咔酷咔</span>
+							<span class="white" id="id-text2">磁卡管理</span>
+						</h1>
+						<h4 class="blue" id="id-company-text">&copy;上海咔酷咔新能源科技有限公司</h4>
+					</div>
+					<div class="space-6"></div>
+					<div class="position-relative">
+						<div id="login-box" class="login-box visible widget-box no-border">
+							<div class="widget-body">
+								<div class="widget-main">
+									<h4 class="header blue lighter bigger">
+										<i class="ace-icon fa fa-coffee green"></i>
+										请输入您的信息
+									</h4>
+									<div class="space-6"></div>
+									<div id="showInfo" style="color: red;"></div>
+									<form>
+										<fieldset>
+											<label class="block clearfix">
+												<span class="block input-icon input-icon-right">
+													<input type="text" class="form-control" placeholder="用户名" id="txtUserName" onblur="GetPwdAndChk()"/>
+													<i class="ace-icon fa fa-user"></i>
+												</span>
+											</label>
+											<label class="block clearfix">
+												<span class="block input-icon input-icon-right">
+													<input type="password" class="form-control" placeholder="密码" id="txtPassword" />
+													<i class="ace-icon fa fa-lock"></i>
+												</span>
+											</label>
+											<div class="space"></div>
+											<div class="clearfix">
+												<label class="inline">
+													<input type="checkbox" class="ace" id="chkRememberPwd"  />
+													<span class="lbl"> 记住我</span>
+												</label>
+												<div id="btn" class="clearfix width-35" style="float: right;">
+													<button type="button" class="width-100 pull-right btn btn-sm btn-primary" OnClick="SetPwdAndChk()">
+														<i class="ace-icon fa fa-key"></i>
+														<span class="bigger-110" >登录</span>
+													</button>
+												</div>
+											</div>
+											<div class="space-4"></div>
+										</fieldset>
+									</form>
+									<div class="social-or-login center">
+										<span class="bigger-110">登录使用</span>
+									</div>
+									<div class="space-6"></div>
+								</div>
+								<div class="toolbar clearfix">
+									<div></div>
+									<div></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+    if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+</script>
+<!-- 与此页面相关的内联脚本 -->
+<script type="text/javascript">
+    jQuery(function($) {
+        $(document).on('click', '.toolbar a[data-target]', function(e) {
+            e.preventDefault();
+            var target = $(this).data('target');
+            $('.widget-box.visible').removeClass('visible');//hide others
+            $(target).addClass('visible');//show target
+        });
+    });
+
+
+
+    //you don't need this, just used for changing background
+    jQuery(function($) {
+        $('#btn-login-dark').on('click', function(e) {
+            $('body').attr('class', 'login-layout');
+            $('#id-text2').attr('class', 'white');
+            $('#id-company-text').attr('class', 'blue');
+
+            e.preventDefault();
+        });
+        $('#btn-login-light').on('click', function(e) {
+            $('body').attr('class', 'login-layout light-login');
+            $('#id-text2').attr('class', 'grey');
+            $('#id-company-text').attr('class', 'blue');
+
+            e.preventDefault();
+        });
+        $('#btn-login-blur').on('click', function(e) {
+            $('body').attr('class', 'login-layout blur-login');
+            $('#id-text2').attr('class', 'white');
+            $('#id-company-text').attr('class', 'light-blue');
+
+            e.preventDefault();
+        });
+
+    });
+</script>
+<!--cookie记住密码-->
+<script type="text/javascript">
+    window.onload=function onLoginLoaded() {
+        if(isPostBack == "False") {
+            GetLastUser();
+        }
+    }
+    function GetLastUser() {
+        var id = "49BAC005-7D5B-4231-8CEA-16939BEACD67";//GUID标识符
+        var usr = GetCookie(id);
+        if (usr != null) {
+            document.getElementById('txtUserName').value = usr;
+        }
+        else {
+            document.getElementById('txtUserName').value = "001";
+        }
+        GetPwdAndChk();
+    }
+    //点击登录时触发客户端事件
+    function SetPwdAndChk() {
+        //取用户名
+        var usr = document.getElementById('txtUserName').value;
+        //                alert(usr);
+        //将最后一个用户信息写入到Cookie
+        SetLastUser(usr);
+        //如果记住密码选项被选中
+        if(document.getElementById('chkRememberPwd').checked == true) {
+            //取密码值
+            var pwd = document.getElementById('txtPassword').value;
+            //                    alert(pwd);
+            var expdate = new Date();
+            expdate.setTime(expdate.getTime() + 14 * (24 * 60 * 60 * 1000));
+            //将用户名和密码写入到Cookie
+            SetCookie(usr, pwd, expdate);
+        }
+        else {
+            //如果没有选中记住密码,则立即过期
+            ResetCookie();
+        }
+    }
+    function SetLastUser(usr) {
+        var id = "49BAC005-7D5B-4231-8CEA-16939BEACD67";
+        var expdate = new Date();
+        //当前时间加上两周的时间
+        expdate.setTime(expdate.getTime() + 14 * (24 * 60 * 60 * 1000));
+        SetCookie(id, usr, expdate);
+    }
+    //用户名失去焦点时调用该方法
+    function GetPwdAndChk() {
+        var usr = document.getElementById('txtUserName').value;
+        var pwd = GetCookie(usr);
+        if (pwd != null) {
+            document.getElementById('chkRememberPwd').checked = true;
+            document.getElementById('txtPassword').value = pwd;
+        }
+        else {
+            document.getElementById('chkRememberPwd').checked = false;
+            document.getElementById('txtPassword').value = "";
+        }
+    }
+    //取Cookie的值
+    function GetCookie(name) {
+        var arg = name + "=";
+        var alen = arg.length;
+        var clen = document.cookie.length;
+        var i = 0;
+        while (i < clen) {
+            var j = i + alen;
+            //alert(j);
+            if (document.cookie.substring(i, j) == arg) return getCookieVal(j);
+            i = document.cookie.indexOf(" ", i) + 1;
+            if (i == 0) break;
+        }
+        return null;
+    }
+    var isPostBack = "<%= IsPostBack %>";
+    function getCookieVal(offset) {
+        var endstr = document.cookie.indexOf(";", offset);
+        if (endstr == -1) endstr = document.cookie.length;
+        return unescape(document.cookie.substring(offset, endstr));
+    }
+    //写入到Cookie
+    function SetCookie(name, value, expires) {
+        var argv = SetCookie.arguments;
+        //本例中length = 3
+        var argc = SetCookie.arguments.length;
+        var expires = (argc > 2) ? argv[2] : null;
+        var path = (argc > 3) ? argv[3] : null;
+        var domain = (argc > 4) ? argv[4] : null;
+        var secure = (argc > 5) ? argv[5] : false;
+        document.cookie = name + "=" + escape(value) + ((expires == null) ? "" : ("; expires=" + expires.toGMTString())) + ((path == null) ? "" : ("; path=" + path)) + ((domain == null) ? "" : ("; domain=" + domain)) + ((secure == true) ? "; secure" : "");
+    }
+    function ResetCookie() {
+        var usr = document.getElementById('txtUserName').value;
+        var expdate = new Date();
+        SetCookie(usr, null, expdate);
+    }
+</script>
+
+<!--ajax登录验证-->
+<script>
+    window.onload = function(){
+        var btn = document.getElementById('btn');
+        btn.onclick  = function(){
+            var username = document.getElementById('txtUserName').value;
+            var password = document.getElementById('txtPassword').value;
+
+            //第一步：创建对象
+            var xhr = null;
+            if(window.XMLHttpRequest){
+                xhr = new XMLHttpRequest();
+            }else{
+                xhr = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            //初始化
+            var url = './check.php?username='+username+"&password="+password;
+            xhr.open('post',url,false);
+
+            //这段代码在xhr.send();执行完之后才能执行
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4){
+                    if(xhr.status == 200){
+//                                alert(1);
+                        var data = xhr.responseText;
+                        if(data == 1){
+                            document.getElementById('showInfo').innerHTML = '用户名或密码错误！';
+                        }else if(data == 2){
+//                                    document.getElementById('showInfo').innerHTML = '登录成功';
+                            self.location='tables.html';
+                        }
+                    }
+                };
+            }
+            xhr.send(null);
+        }
+        document.onkeyup = function (event) {
+            var e = event || window.event;
+            var keyCode = e.keyCode || e.which;
+            switch (keyCode) {
+                case 13:
+                    btn.onclick();
+                    break;
+                case 83:
+                    btn.onclick();
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+</script>
+</body>
+</html>

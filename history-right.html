@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta charset="utf-8"/>
+    <title>磁卡管理</title>
+
+    <meta name="description" content="Static &amp; Dynamic Tables"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-3.3.4.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.4.6.0.css">
+    <link rel="stylesheet" href="assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style"/>
+    <link rel="stylesheet" href="assets/css/jPages.css">
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/js/bootstrap-3.3.4.js"></script>
+    <script src="assets/js/html5shiv.min.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <script src="assets/js/js.js"></script>
+    <script src="assets/js/jPages.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/page.css" media="screen">
+</head>
+
+<body class="no-skin">
+<div id="navbar" class="navbar navbar-default          ace-save-state">
+    <div class="navbar-container ace-save-state" id="navbar-container">
+        <div class="navbar-header pull-left">
+            <a href="#" class="navbar-brand">
+                <small>
+                    <i class="fa fa-leaf"></i>
+                    上海咔酷咔新能源科技有限公司
+                </small>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="ace-icon fa fa-home home-icon"></i>
+            <a href="tables.html">Home</a>
+        </li>
+        <li>
+            <a href="">历史</a>
+        </li>
+    </ul>
+    <div class="nav-search" id="nav-search">
+        <form class="form-search">
+            <span class="input-icon">
+                <input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input"
+                       autocomplete="off">
+                <i class="ace-icon fa fa-search nav-search-icon"></i>
+            </span>
+        </form>
+    </div>
+</div>
+<div class="main-container ace-save-state" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.loadState('main-container')
+        } catch (e) {
+        }
+    </script>
+    <div class="main-content">
+        <div class="main-content-inner">
+            <div class="page-content">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="tabbable">
+                            <ul class="nav nav-tabs padding-18 tab-size-bigger" id="myTab">
+                                <li>
+                                    <a href="history.html">
+                                        <i class="blue ace-icon fa fa-user bigger-120"></i>
+                                        历史充电
+                                    </a>
+                                </li>
+                                <li class="active">
+                                    <a href="history-right.html">
+                                        <i class="green ace-icon fa fa-user bigger-120"></i>
+                                        历史充值
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="tab-content no-border padding-24">
+                                <div class="tab-pane fade in active">
+                                    <table id="simple-table-1" class="table  table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th class="center">交易单号</th>
+                                                <th class="center">磁卡ID</th>
+                                                <th class="center">充值金额</th>
+                                                <th class="hidden-480 center">充值后余额</th>
+                                                <th class="hidden-480 center">
+                                                    <i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
+                                                    充值时间
+                                                </th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody id="tbody-result-1">
+
+                                            <tr>
+                                                <td class="center">84562135412065412</td>
+                                                <td class="center">0000000021012101</td>
+                                                <td class="center">¥111</td>
+                                                <td class="hidden-480 center">¥1111</td>
+                                                <td class=" hidden-480 center">2017-04-27/16:21:20</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="center">84562135412065412</td>
+                                                <td class="center">0000000021012101</td>
+                                                <td class="center">¥111</td>
+                                                <td class="hidden-480 center">¥1111</td>
+                                                <td class=" hidden-480 center">2017-04-27/16:21:20</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="center">84562135412065412</td>
+                                                <td class="center">0000000021012101</td>
+                                                <td class="center">¥111</td>
+                                                <td class="hidden-480 center">¥1111</td>
+                                                <td class=" hidden-480 center">2017-04-27/16:21:20</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="center">84562135412065412</td>
+                                                <td class="center">0000000021012101</td>
+                                                <td class="center">¥111</td>
+                                                <td class="hidden-480 center">¥1111</td>
+                                                <td class=" hidden-480 center">2017-04-27/16:21:20</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="center">84562135412065412</td>
+                                                <td class="center">0000000021012101</td>
+                                                <td class="center">¥111</td>
+                                                <td class="hidden-480 center">¥1111</td>
+                                                <td class=" hidden-480 center">2017-04-27/16:21:20</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="center">84562135412065412</td>
+                                                <td class="center">0000000021012101</td>
+                                                <td class="center">¥111</td>
+                                                <td class="hidden-480 center">¥1111</td>
+                                                <td class=" hidden-480 center">2017-04-27/16:21:20</td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                    <div class="holder" style="text-align: center;"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="hr hr-18 dotted hr-double"></div>
+                        <h4 class="pink">
+                            <i class="ace-icon fa fa-hand-o-right icon-animated-hand-pointer blue"></i>
+                            <a href="http://www.kakuka.com.cn/" role="button" class="green" data-toggle="modal">
+                                雷神充电，为美好生活充电 </a>
+                        </h4>
+                        <div class="hr hr-18 dotted hr-double"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-inner">
+            <div class="footer-content">
+						<span class="bigger-120">
+							<span class="blue bolder">上海咔酷咔</span>
+							新能源科技有限公司 &copy; 2017-2018
+						</span>
+                <span class="action-buttons">
+                    <a href="#">
+                        <i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
+                    </a>
+                    <a href="#">
+                        <i class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
+                    </a>
+                    <a href="#">
+                        <i class="ace-icon fa fa-rss-square orange bigger-150"></i>
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+        <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+    </a>
+</div>
+</body>
+
+<!--搜索-->
+<script>
+    // 按键弹起时触发的事件；
+    $("#nav-search-input").keyup(function () {
+        var sstxt = $('#nav-search-input').val();
+        $("table tbody tr")
+            .hide()
+            .filter(":contains('" + sstxt + "')")
+            .show();
+    });
+
+
+    //分页
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-28718218-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = 'assets/js/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+    window.onload  = function () {
+        $("div.holder").jPages({
+            containerID: "tbody-result-1",
+            first:'首页',
+            last:'尾页',
+            previous: "←上一页",
+            next: "下一页→",
+            perPage: 3,
+            delay: 50
+        });
+    }
+
+
+</script>
+
+</html>

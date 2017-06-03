@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+    <title>磁卡管理</title>
+    <meta name="description" content="Static &amp; Dynamic Tables" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-3.3.4.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.4.6.0.css">
+    <link rel="stylesheet" href="assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/js/bootstrap-3.3.4.js"></script>
+    <script src="assets/js/html5shiv.min.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+</head>
+
+<body class="no-skin">
+    <div id="navbar" class="navbar navbar-default          ace-save-state">
+        <div class="navbar-container ace-save-state" id="navbar-container">
+            <div class="navbar-header pull-left">
+                <a href="#" class="navbar-brand">
+                    <small>
+                        <i class="fa fa-leaf"></i>
+                        上海咔酷咔新能源科技有限公司
+                    </small>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="tables.html">Home</a>
+            </li>
+            <li>
+                <a href="form.html">修改信息</a>
+            </li>
+        </ul>
+        <div class="nav-search" id="nav-search">
+            <form class="form-search">
+                <span class="input-icon">
+                    <input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off">
+                    <i class="ace-icon fa fa-search nav-search-icon"></i>
+                </span>
+            </form>
+        </div>
+    </div>
+    <div class="main-container ace-save-state" id="main-container">
+    <script type="text/javascript">
+        try{ace.settings.loadState('main-container')}catch(e){}
+    </script>
+    <div class="main-content">
+        <div class="main-content-inner">
+            <div class="page-content">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <form class="form-horizontal" role="form" action="form.php" method="post" id="form">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 卡号 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="card_number" id="form-field-1" placeholder="卡号" class="col-xs-10 col-sm-5" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 姓名 </label>
+                                <div class="col-sm-9">
+                                    <input type="text"  name="location" id="form-field-2" placeholder="姓名" class="col-xs-10 col-sm-5"  />
+                                </div>
+                            </div>
+                            <div class="space-4"></div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 性别 </label>
+                                <div class="col-sm-9">
+                                    <input type="text"  name="location" id="form-field-3" placeholder="性别" class="col-xs-10 col-sm-5"  />
+                                </div>
+                            </div>
+                            <div class="space-4"></div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 手机号 </label>
+                                <div class="col-sm-9">
+                                    <input type="text"  name="location" id="form-field-4" placeholder="手机号" class="col-xs-10 col-sm-5"  />
+                                </div>
+                            </div>
+                            <div class="space-4"></div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 发卡日期 </label>
+                                <div class="col-sm-9">
+                                    <input type="text"  name="location" id="form-field-5" placeholder="发卡日期" class="col-xs-10 col-sm-5"  />
+                                </div>
+                            </div>
+                            <div class="space-4"></div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 用户单位信息 </label>
+                                <div class="col-sm-9">
+                                    <input type="text"  name="location" id="form-field-6" placeholder="用户单位信息" class="col-xs-10 col-sm-5"  />
+                                </div>
+                            </div>
+                            <div class="space-4"></div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 运营商 </label>
+                                <div class="col-sm-9">
+                                    <input type="text"  name="location" id="form-field-7" placeholder="运营商" class="col-xs-10 col-sm-5"  />
+                                </div>
+                            </div>
+                            <div class="space-4"></div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 用户等级 </label>
+                                <div class="col-sm-9">
+                                    <input type="text"  name="location" id="form-field-8" placeholder="用户等级" class="col-xs-10 col-sm-5"  />
+                                </div>
+                            </div>
+                            <div class="space-4"></div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-3"> 等级积分 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="name" id="form-field-9" placeholder="等级积分" class="col-xs-10 col-sm-5" />
+                                </div>
+                            </div>
+                            <div class="space-4"></div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-4"> 磁卡状态 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="age" id="form-field-10" placeholder="磁卡状态" class="col-xs-10 col-sm-5" />
+                                </div>
+                            </div>
+                            <div class="space-4"></div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-5"> 最后交易时间 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="telephone" id="form-field-11" placeholder="最后交易时间" class="col-xs-10 col-sm-5" />
+                                </div>
+                            </div>
+                            <div class="space-4"></div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-6"> 充电次数 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="ID_card" id="form-field-12" placeholder="充电次数" class="col-xs-10 col-sm-5" />
+                                </div>
+                            </div>
+                            <div class="space-4"></div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-6"> 用户地址 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="ID_card" id="form-field-13" placeholder="用户地址" class="col-xs-10 col-sm-5" />
+                                </div>
+                            </div>
+                            <div class="space-4"></div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-6"> 余额 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="ID_card" id="form-field-14" placeholder="余额" class="col-xs-10 col-sm-5" />
+                                </div>
+                            </div>
+                            <div class="space-4"></div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-6"> 用户邮箱 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="ID_card" id="form-field-15" placeholder="用户邮箱" class="col-xs-10 col-sm-5" />
+                                </div>
+                            </div>
+                            <div class="space-4"></div>
+                            <div class="clearfix form-actions">
+                                <div class="col-md-offset-3 col-md-9">
+                                    <button type="submit" class="btn btn-info" type="button" id="submit">
+                                        <i class="ace-icon fa fa-check bigger-110"></i>
+                                        提交
+                                    </button>
+                                    <button class="btn" type="reset">
+                                        <i class="ace-icon fa fa-undo bigger-110"></i>
+                                        重置
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="hr hr-24"></div>
+                        </form>
+                        <div class="hr hr-18 dotted hr-double"></div>
+                        <h4 class="pink">
+                            <i class="ace-icon fa fa-hand-o-right green"></i>
+                            <a href="#modal-form" role="button" class="blue" data-toggle="modal"> 雷神充电，为美好生活充电 </a>
+                        </h4>
+                        <div class="hr hr-18 dotted hr-double"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-inner">
+            <div class="footer-content">
+						<span class="bigger-120">
+							<span class="blue bolder">上海咔酷咔</span>
+							新能源科技有限公司 &copy; 2017-2018
+						</span>
+                <span class="action-buttons">
+							<a href="#">
+								<i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
+							</a>
+							<a href="#">
+								<i class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
+							</a>
+							<a href="#">
+								<i class="ace-icon fa fa-rss-square orange bigger-150"></i>
+							</a>
+						</span>
+            </div>
+        </div>
+    </div>
+    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+        <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+    </a>
+</div>
+
+</body>
+<script>
+
+</script>
+</html>
